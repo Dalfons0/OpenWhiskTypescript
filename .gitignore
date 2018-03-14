@@ -1,0 +1,20 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Webpack
+.webpack
+
+# Exclude tsc generated files
+dist/
+
+# Visual Studio Code Settings
+.vscode/

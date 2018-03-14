@@ -1,0 +1,20 @@
+{
+  "name": "openwhisk-nodejs",
+  "version": "1.0.0",
+  "description": "Sample OpenWhisk NodeJS serverless framework service.",
+  "main": "handler.js",
+  "scripts": {
+    "build": "webpack",
+    "build:sls": "sls webpack",
+    "deploy": "webpack && sls deploy",
+    "postinstall": "npm link serverless-openwhisk"
+  },
+  "keywords": ["serverless", "openwhisk"],
+  "devDependencies": {
+    "serverless-webpack": "^4.4.0",
+    "ts-loader": "^4.0.1",
+    "typescript": "^2.7.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10"
+  }
+}
