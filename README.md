@@ -14,19 +14,16 @@ First of all, download and install minikube following the instructions of the [o
 λ  minikube start --vm-driver=hyperv --hyperv-virtual-switch="Primary Virtual Switch" --cpus 2 --memory 4096
 ```
 
-# [Note]
+>**Note**:
+>Before executing the upper command you have to configure a [virtual switch](https://docs.docker.com/machine/drivers/hyper-v/#2-set-up-a-new-external-network-switch-optional) in the Hyper-V manager, in order to grant minikube access to internet.
 
-# Before executing the upper command you have to configure a [virtual switch](https://docs.docker.com/machine/drivers/hyper-v/#2-set-up-a-new-external-network-switch-optional) in the Hyper-V manager, in order to grant minikube access to internet.
+>**Important:**
+>If you are using minikube in windows with the hyper-v drive, you have to use minikube through an admin powershell, because this is necessary to interact with the hyper-v machine.
 
-# [Important]
+>**Curiosity:**
+>You can connect to the minikube VM with the user 'docker' and the password 'tcuser'.
 
-# If you are using minikube in windows with the hyper-v drive, you have to use minikube through an admin powershell, because this is necessary to interact with the hyper-v machine.
-
-# [Curiosity]
-
-# You can connect to the minikube VM with the user 'docker' and the password 'tcuser'.
-
-####Deploying OpenWhisk
+#### Deploying OpenWhisk
 
 Once you have the minikube running in your local machine you only have to clone [this repository](https://github.com/apache/incubator-openwhisk-deploy-kube) and follow the instructions in order to deploy OpenWhisk on it, but if you are working on windows you have to keep in mind some considerations:
 
