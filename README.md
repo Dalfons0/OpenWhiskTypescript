@@ -14,14 +14,14 @@ First of all, download and install minikube following the instructions of the [o
 λ  minikube start --vm-driver=hyperv --hyperv-virtual-switch="Primary Virtual Switch" --cpus 2 --memory 4096
 ```
 
->**Note**:
->Before executing the upper command you have to configure a [virtual switch](https://docs.docker.com/machine/drivers/hyper-v/#2-set-up-a-new-external-network-switch-optional) in the Hyper-V manager, in order to grant minikube access to internet.
+> **Note**:
+> Before executing the upper command you have to configure a [virtual switch](https://docs.docker.com/machine/drivers/hyper-v/#2-set-up-a-new-external-network-switch-optional) in the Hyper-V manager, in order to grant minikube access to internet.
 
->**Important:**
->If you are using minikube in windows with the hyper-v drive, you have to use minikube through an admin powershell, because this is necessary to interact with the hyper-v machine.
+> **Important:**
+> If you are using minikube in windows with the hyper-v drive, you have to use minikube through an admin powershell, because this is necessary to interact with the hyper-v machine.
 
->**Curiosity:**
->You can connect to the minikube VM with the user 'docker' and the password 'tcuser'.
+> **Curiosity:**
+> You can connect to the minikube VM with the user 'docker' and the password 'tcuser'.
 
 #### Deploying OpenWhisk
 
@@ -54,12 +54,12 @@ $ npm install
 
 **_…and that's it!_**
 
-### Deploy Service
-
-Use the `serverless` command to deploy your service. The sample `handler.js` file can be deployed without modification.
-
-```shell
-serverless deploy
-```
-
 ### Issues encountered
+
+* The serverless-openwhisk plugin doesn't integrate properly with [other plugings](https://github.com/serverless/serverless-openwhisk/issues/77), that prevented to integrate webpack with his plugin, but added a script (`yarn deploy`) and the path to the out compiled sources in the serverless.yml as a workaround.
+
+* The serverless-openwhisk plugin [doesn't deploy](https://github.com/serverless/serverless-openwhisk/issues/103) the apigateway, despite of working properly with the OpenWhisk CLI.
+
+* Deploy or create a scheduled trigger ([alarm](https://github.com/apache/incubator-openwhisk-package-alarms/blob/master/README.md)) returning an unauthorized error (403), the other services of the [catalog](https://github.com/apache/incubator-openwhisk/blob/master/docs/catalog.md) haven't been tested.
+
+* There is a [script](https://github.com/apache/incubator-openwhisk-deploy-kube/blob/master/tools/travis/build.sh) that set up OpenWhisk automatically in minikube, but didn't work for me, some parts didn't deploy properly, so it's worth to take a look and try to have this working.
